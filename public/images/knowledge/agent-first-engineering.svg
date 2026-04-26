@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+  <rect width="1600" height="900" fill="#fbfaf7"/>
+  <path d="M128 128H1472V772H128z" fill="none" stroke="#222" stroke-opacity=".12"/>
+  <path d="M128 260H1472" stroke="#222" stroke-opacity=".08"/>
+  <circle cx="1340" cy="182" r="7" fill="#d97757"/>
+  <text x="176" y="188" font-family="Inter, Helvetica, Arial, sans-serif" font-size="26" fill="#6b6259" letter-spacing="4">KNOWLEDGE CARD / 01</text>
+  <text x="176" y="430" font-family="Georgia, 'Times New Roman', serif" font-size="108" fill="#1f1a17">Agent-First</text>
+  <text x="176" y="550" font-family="Georgia, 'Times New Roman', serif" font-size="108" fill="#1f1a17">Engineering</text>
+  <text x="180" y="688" font-family="Inter, Helvetica, Arial, sans-serif" font-size="30" fill="#6b6259">environment · rules · feedback loops</text>
+</svg>

@@ -1,0 +1,28 @@
+.DS_Store
+.env
+/node_modules/
+
+# React Router
+/.react-router/
+/build/
+
+# Local planning and drafting files
+/CONTENT_INTAKE.md
+/CONTEXT_SUMMARY.md
+/knowledge/
+/个人网站github page设计/
+/个人网站github page设计.zip
+/public/font-preview.html
+
+# Unused template/demo assets from the original scaffold
+/public/images/projects/3d-face.webp
+/public/images/projects/nextjs-authentication-scaffold.webp
+/public/images/projects/prd-eval.svg
+/public/images/projects/图像2026-4-25 21.53.webp
+/public/images/avatar/user.webp
+/public/markdown/nextjs-authentication-scaffold.md
+/public/markdown/nextjs-authentication-scaffold_cn.md
+/public/markdown/prd-eval-bench.md
+/public/markdown/prd-eval-bench_cn.md
+/public/markdown/three-d-face-particles.md
+/public/markdown/three-d-face-particles_cn.md

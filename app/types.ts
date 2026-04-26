@@ -1,0 +1,356 @@
+export type SiteLanguage = "en-US" | "zh-CN";
+
+export type Theme = "dark" | "light";
+
+export type DividerStyle =
+  | "double-solid"
+  | "single-dashed"
+  | "soft-fade"
+  | "dot-chain"
+  | "hairline"
+  | "dash-dot"
+  | "center-glow"
+  | "woven-grid";
+
+export type HoverSide = "left" | "top" | "bottom" | "right";
+
+export type SocialLinkConfig = {
+  label: string;
+  href?: string;
+  side: HoverSide;
+  profile: {
+    name: string;
+    subtitle: string;
+    description?: string;
+  };
+};
+
+export type SiteConfig = {
+  defaultLanguage: SiteLanguage;
+  avatarSrc: string;
+  resume: {
+    href: string;
+    downloadName: string;
+    email: string;
+  };
+  contact: {
+    bookingUrl?: string;
+    socials: SocialLinkConfig[];
+  };
+  visitorCount?: number;
+};
+
+export type HomeSectionId = string;
+
+export type HomeSectionDepth = 2 | 3;
+
+export type HomeSectionMeta = {
+  id: HomeSectionId;
+  depth: HomeSectionDepth;
+  label: string;
+};
+
+export type LinkType = "github" | "demo" | "website" | "readme" | "issues";
+
+export type ProjectStatus = "building" | "online" | "beta" | "concept";
+
+export type Project<Slug extends string = string> = {
+  slug: Slug;
+  cover: string;
+  name: string;
+  summary: string;
+  intro: string;
+  detail: string;
+  status: ProjectStatus;
+  stack: string[];
+  links?: Partial<Record<LinkType, string>>;
+};
+
+export type ProjectMap<Slug extends string = string> = {
+  [Key in Slug]: Project<Key>;
+};
+
+export function defineProjects<const Slug extends string>(
+  projects: ProjectMap<Slug>,
+) {
+  return projects;
+}
+
+export type BadgeIconKey =
+  | "briefcase"
+  | "school"
+  | "code"
+  | "star"
+  | "rocket"
+  | "bolt"
+  | "coffee"
+  | "moon";
+
+export type BadgeItem = {
+  id: string;
+  label: string;
+  icon: BadgeIconKey;
+};
+
+export type ExperienceEntry = {
+  id: string;
+  organization: string;
+  role: string;
+  employmentType?: string;
+  period: string;
+  location: string;
+  logoText: string;
+  highlights: string[];
+};
+
+export type SkillIconKey =
+  | "nextjs"
+  | "react"
+  | "nodejs"
+  | "mongodb"
+  | "mysql"
+  | "prisma"
+  | "tailwind"
+  | "javascript"
+  | "typescript"
+  | "git"
+  | "github"
+  | "rust"
+  | "python"
+  | "threejs"
+  | "vite"
+  | "vue"
+  | "radix"
+  | "docker";
+
+export type SkillEntry = {
+  name: string;
+  icon?: SkillIconKey;
+};
+
+export type NowIconKey = "code-dots" | "book" | "target";
+
+export type NowEntry = {
+  id: string;
+  title: string;
+  description: string;
+  badge: string;
+  icon: NowIconKey;
+};
+
+export type HomeProfileContent = {
+  tocLabel: string;
+  name: string;
+  avatarAlt: string;
+  roles: string[];
+};
+
+export type HomeAboutContent = {
+  tocLabel: string;
+  greeting: string;
+  school: {
+    name: string;
+    major: string;
+    majorEnglish: string;
+  };
+  status: string;
+  badges: BadgeItem[];
+};
+
+export type HomeProjectsContent = {
+  tocLabel: string;
+  title: string;
+  viewDetailsLabel: string;
+};
+
+export type DeckEntry = {
+  id: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  src: string;
+  tags: string[];
+};
+
+export type HomeDecksContent = {
+  tocLabel: string;
+  title: string;
+  items: DeckEntry[];
+};
+
+export type KnowledgeEntry = {
+  id: string;
+  title: string;
+  cover: string;
+  summary: string;
+  tags: string[];
+};
+
+export type HomeKnowledgeContent = {
+  tocLabel: string;
+  title: string;
+  viewDetailsLabel: string;
+  items: KnowledgeEntry[];
+};
+
+export type HomeGithubContent = {
+  tocLabel: string;
+  title: string;
+  totalTemplate: string;
+  activityTemplate: string;
+  legend: {
+    less: string;
+    more: string;
+  };
+  weekdays: [string, string, string, string, string, string, string];
+};
+
+export type HomeExperiencesContent = {
+  tocLabel: string;
+  title: string;
+  items: ExperienceEntry[];
+};
+
+export type HomeSkillsContent = {
+  tocLabel: string;
+  title: string;
+  items: SkillEntry[];
+};
+
+export type HomeNowContent = {
+  tocLabel: string;
+  title: string;
+  items: NowEntry[];
+};
+
+export type HomeResumeContent = {
+  tocLabel: string;
+  title: string;
+  badges: {
+    available: string;
+    updated: string;
+  };
+  heading: string;
+  description: string;
+  downloadLabel: string;
+  copyEmailLabel: string;
+  emailCopiedLabel: string;
+};
+
+export type HomeNewsletterContent = {
+  tocLabel: string;
+  title: string;
+  formLabel: string;
+  emailLabel: string;
+  placeholder: string;
+  submitLabel: string;
+  successMessage: string;
+  errors: {
+    required: string;
+    invalid: string;
+  };
+};
+
+export type HomeIntroductionContent = {
+  tocLabel: string;
+  quote: string;
+  author: string;
+};
+
+export type HomeContent = {
+  profile: HomeProfileContent;
+  about: HomeAboutContent;
+  decks: HomeDecksContent;
+  projects: HomeProjectsContent;
+  github: HomeGithubContent;
+  experiences: HomeExperiencesContent;
+  knowledge: HomeKnowledgeContent;
+  skills: HomeSkillsContent;
+  now: HomeNowContent;
+  resume: HomeResumeContent;
+  newsletter: HomeNewsletterContent;
+  introduction: HomeIntroductionContent;
+};
+
+export type UiCommonContent = {
+  copy: string;
+  copied: string;
+  backToTop: string;
+  status: Record<ProjectStatus, string>;
+  links: Record<LinkType, string>;
+};
+
+export type UiProjectDetailContent = {
+  title: string;
+  tabsLabel: string;
+  tabs: {
+    overview: string;
+    readme: string;
+    website: string;
+  };
+  cloneProtocols: {
+    https: string;
+    ssh: string;
+    cli: string;
+  };
+  stackTitle: string;
+  readmeEnterFullscreen: string;
+  readmeExitFullscreen: string;
+  readmeLoading: string;
+  readmeError: string;
+  cloneDescription: string;
+  downloadZip: string;
+  websiteUnavailable: string;
+};
+
+export type UiSettingsContent = {
+  buttonAria: string;
+  menuLabel: string;
+  themeLabel: string;
+  dividerLabel: string;
+  languageLabel: string;
+  dividerPresets: string;
+  themeOptions: Record<Theme, string>;
+  dividerOptions: Record<DividerStyle, string>;
+  languageOptions: Record<SiteLanguage, string>;
+};
+
+export type UiNotFoundContent = {
+  eyebrow: string;
+  description: string;
+};
+
+export type UiErrorBoundaryContent = {
+  oops: string;
+  unexpectedDescription: string;
+  errorTitle: string;
+  notFoundDescription: string;
+};
+
+export type UiScrollAnchorContent = {
+  label: string;
+  title: string;
+};
+
+export type UiActionsContent = {
+  sendEmail: string;
+  reserve: string;
+  accountPrefix: string;
+  accountHighlight: string;
+};
+
+export type UiContent = {
+  common: UiCommonContent;
+  projectDetail: UiProjectDetailContent;
+  settings: UiSettingsContent;
+  notFound: UiNotFoundContent;
+  errorBoundary: UiErrorBoundaryContent;
+  scrollAnchor: UiScrollAnchorContent;
+  actions: UiActionsContent;
+};
+
+export type SiteContent<Slug extends string = string> = {
+  home: HomeContent;
+  projects: ProjectMap<Slug>;
+  ui: UiContent;
+};
