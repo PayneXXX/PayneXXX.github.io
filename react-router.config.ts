@@ -4,6 +4,9 @@ import { knowledgeSlugs, projectSlugs } from "./app/content";
 export default {
   appDirectory: "app",
   ssr: true,
+  routeDiscovery: {
+    mode: "initial",
+  },
   async prerender({ getStaticPaths }) {
     return [
       ...getStaticPaths(),
